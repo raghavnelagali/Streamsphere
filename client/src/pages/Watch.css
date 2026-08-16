@@ -1,0 +1,179 @@
+.watch-page {
+    min-height: calc(100vh - 70px);
+
+    background: #0b0b0f;
+
+    padding: 40px 30px 70px;
+}
+
+.watch-container {
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+}
+
+.video-container {
+    width: 100%;
+
+    background: #000;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    border: 1px solid #292432;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.video-player {
+    width: 100%;
+
+    max-height: 680px;
+
+    display: block;
+
+    background: #000;
+}
+
+.watch-info {
+    padding: 25px 5px;
+}
+
+.watch-info h1 {
+    color: #f5f3ff;
+
+    font-size: 30px;
+
+    margin-bottom: 12px;
+}
+
+.watch-meta {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    color: #9995a3;
+
+    font-size: 14px;
+
+    margin-bottom: 18px;
+}
+
+.watch-info p {
+    max-width: 800px;
+
+    color: #aaa5b5;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+}
+
+.watch-loading,
+.watch-error {
+    min-height: calc(100vh - 70px);
+
+    background: #0b0b0f;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 20px;
+}
+
+.watch-error h2 {
+    color: #f5f3ff;
+
+    margin-bottom: 10px;
+}
+
+.watch-error p {
+    color: #aaa5b5;
+
+    margin-bottom: 20px;
+}
+
+.watch-error button {
+    padding: 11px 20px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #7c3aed;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: 600;
+}
+
+.watch-error button:hover {
+    background: #8b5cf6;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .watch-page {
+        padding: 20px 10px 50px;
+    }
+
+    .video-container {
+        border-radius: 6px;
+    }
+
+    .watch-info {
+        padding: 20px 5px;
+    }
+
+    .watch-info h1 {
+        font-size: 24px;
+    }
+
+    .watch-info p {
+        font-size: 14px;
+    }
+}
+
+.video-container {
+    position: relative;
+}
+
+.video-loading {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 2;
+
+    color: #ffffff;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    padding: 12px 20px;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+}

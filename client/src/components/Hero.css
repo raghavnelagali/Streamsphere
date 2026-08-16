@@ -1,0 +1,184 @@
+.hero {
+    min-height: 600px;
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+}
+
+.hero-content {
+    width: 550px;
+
+    margin-left: 60px;
+
+    padding-top: 40px;
+}
+
+.hero-label {
+    color: #a78bfa;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    font-size: 64px;
+
+    line-height: 1.05;
+
+    margin: 15px 0;
+
+    color: white;
+
+    text-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.hero-meta {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #d1d1d1;
+
+    font-size: 15px;
+
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    color: #d0cdd6;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    max-width: 520px;
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 3;
+
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+.hero-buttons {
+    display: flex;
+
+    gap: 14px;
+
+    margin-top: 30px;
+}
+
+.hero-watch-button,
+.hero-info-button {
+    border: none;
+
+    padding: 12px 24px;
+
+    border-radius: 6px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.hero-watch-button {
+    background: #7c3aed;
+
+    color: white;
+}
+
+.hero-watch-button:hover {
+    background: #8b5cf6;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 25px rgba(124, 58, 237, 0.35);
+}
+
+.hero-info-button {
+    background: rgba(255, 255, 255, 0.12);
+
+    color: white;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-info-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
+    .hero {
+        min-height: 500px;
+    }
+
+    .hero-content {
+        margin-left: 35px;
+
+        width: 500px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .hero {
+        min-height: 520px;
+
+        background-position: center;
+    }
+
+    .hero-content {
+        margin: 0 20px;
+
+        width: auto;
+
+        padding-top: 80px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero-meta {
+        flex-wrap: wrap;
+
+        font-size: 13px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        width: 180px;
+    }
+}

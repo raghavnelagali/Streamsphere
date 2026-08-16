@@ -1,0 +1,293 @@
+.auth-page {
+    min-height: calc(100vh - 70px);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px 20px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(124, 58, 237, 0.12),
+            transparent 45%
+        ),
+        #0b0b0f;
+}
+
+
+/* =========================
+   AUTH CARD
+========================= */
+
+.auth-card {
+    width: 100%;
+
+    max-width: 430px;
+
+    padding: 38px;
+
+    background: #121118;
+
+    border: 1px solid #292432;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.auth-header {
+    text-align: center;
+
+    margin-bottom: 28px;
+}
+
+.auth-logo {
+    color: #ffffff;
+
+    font-size: 26px;
+
+    font-weight: 800;
+
+    margin-bottom: 25px;
+
+    letter-spacing: -0.5px;
+}
+
+.auth-logo span {
+    color: #8b5cf6;
+}
+
+.auth-header h1 {
+    color: #f5f3ff;
+
+    font-size: 28px;
+
+    margin: 0 0 10px;
+
+    font-weight: 700;
+}
+
+.auth-header p {
+    color: #9995a3;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin: 0;
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+.auth-error {
+    padding: 11px 13px;
+
+    margin-bottom: 20px;
+
+    background: rgba(239, 68, 68, 0.08);
+
+    border: 1px solid rgba(239, 68, 68, 0.25);
+
+    border-radius: 6px;
+
+    color: #fca5a5;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.auth-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.auth-field {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.auth-field label {
+    color: #ddd8e8;
+
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+.auth-field input {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 12px 13px;
+
+    background: #0d0c11;
+
+    border: 1px solid #302c3a;
+
+    border-radius: 6px;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.auth-field input::placeholder {
+    color: #696574;
+}
+
+.auth-field input:focus {
+    border-color: #7c3aed;
+
+    background: #100e15;
+
+    box-shadow:
+        0 0 0 3px rgba(124, 58, 237, 0.12);
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.auth-button {
+    width: 100%;
+
+    padding: 13px;
+
+    margin-top: 4px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #7c3aed;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.auth-button:hover:not(:disabled) {
+    background: #8b5cf6;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 25px rgba(124, 58, 237, 0.25);
+}
+
+.auth-button:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.auth-footer {
+    text-align: center;
+
+    margin-top: 25px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid #292432;
+}
+
+.auth-footer p {
+    display: inline;
+
+    color: #9995a3;
+
+    font-size: 13px;
+
+    margin: 0 5px 0 0;
+}
+
+.auth-footer a {
+    color: #a78bfa;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+.auth-footer a:hover {
+    color: #c4b5fd;
+
+    text-decoration: underline;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .auth-page {
+        min-height: calc(100vh - 60px);
+
+        padding: 30px 15px;
+    }
+
+    .auth-card {
+        padding: 28px 22px;
+
+        border-radius: 10px;
+    }
+
+    .auth-header h1 {
+        font-size: 24px;
+    }
+
+    .auth-logo {
+        font-size: 24px;
+    }
+}

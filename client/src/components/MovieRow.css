@@ -1,0 +1,126 @@
+.movie-section {
+    margin-bottom: 40px;
+
+    padding: 0 5px;
+}
+
+.movie-section-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 16px;
+}
+
+.movie-section-header h2 {
+    font-size: 22px;
+
+    font-weight: 600;
+
+    color: #f5f3ff;
+
+    white-space: nowrap;
+
+    margin: 0;
+}
+
+.movie-section-line {
+    height: 1px;
+
+    flex: 1;
+
+    background: linear-gradient(
+        to right,
+        #35215f,
+        transparent
+    );
+}
+
+.movie-row {
+    display: flex;
+
+    gap: 18px;
+
+    overflow-x: auto;
+
+    overflow-y: hidden;
+
+    padding: 5px 5px 15px;
+
+    scroll-behavior: smooth;
+
+    scroll-snap-type: x proximity;
+}
+
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+.movie-row::-webkit-scrollbar {
+    height: 5px;
+}
+
+.movie-row::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.movie-row::-webkit-scrollbar-thumb {
+    background: #34204f;
+
+    border-radius: 10px;
+}
+
+.movie-row::-webkit-scrollbar-thumb:hover {
+    background: #7c3aed;
+}
+
+
+/* Firefox */
+
+.movie-row {
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        #34204f
+        transparent;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .movie-section {
+        margin-bottom: 30px;
+
+        padding: 0;
+    }
+
+    .movie-section-header {
+        gap: 10px;
+
+        margin-bottom: 12px;
+    }
+
+    .movie-section-header h2 {
+        font-size: 19px;
+    }
+
+    .movie-row {
+        gap: 12px;
+
+        padding-left: 2px;
+        padding-right: 2px;
+
+        scroll-snap-type: x mandatory;
+    }
+
+    .movie-card {
+        scroll-snap-align: start;
+    }
+}

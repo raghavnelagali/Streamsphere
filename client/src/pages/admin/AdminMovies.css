@@ -1,0 +1,482 @@
+/* =========================================
+   ADMIN MOVIES PAGE
+========================================= */
+
+.admin-page {
+    min-height: calc(100vh - 70px);
+
+    padding: 45px 43px 70px;
+
+    background: #0b0b0f;
+
+    color: white;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.admin-movies-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 35px;
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid #25212f;
+}
+
+
+/* LEFT SIDE */
+
+.admin-movies-heading {
+    min-width: 0;
+}
+
+.admin-movies-header h1 {
+    margin: 8px 0;
+
+    color: #f5f3ff;
+
+    font-size: 34px;
+
+    line-height: 1.2;
+}
+
+.admin-movies-header p {
+    margin: 0;
+
+    color: #888492;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   HEADER ACTIONS
+========================================= */
+
+.admin-movies-actions {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+}
+
+
+/* BACK TO DASHBOARD */
+
+.admin-back-button {
+    padding: 10px 15px;
+
+    border: 1px solid #342f40;
+
+    border-radius: 7px;
+
+    background: #15131b;
+
+    color: #c4b5fd;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition: all 0.2s ease;
+}
+
+.admin-back-button:hover {
+    background: #211735;
+
+    border-color: #7c3aed;
+
+    color: #ffffff;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 18px rgba(124, 58, 237, 0.12);
+}
+
+
+/* ADD MOVIE */
+
+.admin-add-button {
+    padding: 11px 18px;
+
+    border: 1px solid #7c3aed;
+
+    border-radius: 7px;
+
+    background: #7c3aed;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition: all 0.2s ease;
+}
+
+.admin-add-button:hover {
+    background: #8b5cf6;
+
+    border-color: #8b5cf6;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 7px 22px
+        rgba(124, 58, 237, 0.25);
+}
+
+
+/* =========================================
+   TABLE
+========================================= */
+
+.admin-movies-table {
+    width: 100%;
+
+    overflow-x: auto;
+
+    background: #111016;
+
+    border: 1px solid #29243a;
+
+    border-radius: 10px;
+}
+
+
+/* TABLE HEADER + ROW */
+
+.admin-table-header,
+.admin-movie-row {
+    min-width: 950px;
+
+    display: grid;
+
+    grid-template-columns:
+        2.5fr
+        1fr
+        0.7fr
+        0.8fr
+        1fr
+        1.5fr;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 15px 20px;
+}
+
+
+/* TABLE HEADER */
+
+.admin-table-header {
+    background: #17141f;
+
+    border-bottom: 1px solid #29243a;
+
+    color: #777281;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.8px;
+}
+
+
+/* MOVIE ROW */
+
+.admin-movie-row {
+    min-height: 85px;
+
+    color: #c8c4cf;
+
+    font-size: 13px;
+
+    border-bottom: 1px solid #211e29;
+
+    transition: background 0.2s;
+}
+
+.admin-movie-row:last-child {
+    border-bottom: none;
+}
+
+.admin-movie-row:hover {
+    background: #15131c;
+}
+
+
+/* =========================================
+   MOVIE INFORMATION
+========================================= */
+
+.admin-movie-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    min-width: 0;
+}
+
+.admin-movie-title img {
+    width: 48px;
+
+    height: 65px;
+
+    object-fit: cover;
+
+    border-radius: 5px;
+
+    flex-shrink: 0;
+}
+
+.admin-movie-title h3 {
+    margin: 0 0 5px;
+
+    color: #f5f3ff;
+
+    font-size: 14px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.admin-movie-title p {
+    margin: 0;
+
+    color: #777281;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   PREMIUM STATUS
+========================================= */
+
+.premium-status {
+    display: inline-block;
+
+    padding: 4px 7px;
+
+    border-radius: 4px;
+
+    background: rgba(124, 58, 237, 0.12);
+
+    border: 1px solid
+        rgba(124, 58, 237, 0.3);
+
+    color: #a78bfa;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================
+   ACTIONS
+========================================= */
+
+.admin-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.admin-actions button {
+    border: none;
+
+    padding: 7px 11px;
+
+    border-radius: 5px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+
+/* EDIT */
+
+.edit-button {
+    background: #211a32;
+
+    color: #c4b5fd;
+
+    border: 1px solid #3b2c59 !important;
+}
+
+.edit-button:hover {
+    background: #302148;
+
+    border-color: #7c3aed !important;
+
+    color: white;
+
+    transform: translateY(-1px);
+}
+
+
+/* DELETE */
+
+.delete-button {
+    background: #29171b;
+
+    color: #fca5a5;
+
+    border: 1px solid #51252c !important;
+}
+
+.delete-button:hover {
+    background: #3a1b21;
+
+    border-color: #8b3a45 !important;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.admin-empty {
+    padding: 70px 20px;
+
+    text-align: center;
+
+    color: #777281;
+
+    background: #111016;
+
+    border: 1px solid #29243a;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   LOADING
+========================================= */
+
+.admin-loading {
+    padding: 70px 20px;
+
+    text-align: center;
+
+    color: #777281;
+
+    background: #111016;
+
+    border: 1px solid #29243a;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+.admin-error {
+    padding: 15px 18px;
+
+    color: #fca5a5;
+
+    background: #29171b;
+
+    border: 1px solid #51252c;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .admin-page {
+        padding: 30px 18px 50px;
+    }
+
+
+    .admin-movies-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+
+    .admin-movies-header h1 {
+        font-size: 28px;
+    }
+
+
+    .admin-movies-actions {
+        width: 100%;
+
+        justify-content: flex-start;
+    }
+
+
+    .admin-back-button,
+    .admin-add-button {
+        flex: 1;
+
+        text-align: center;
+    }
+
+
+    .admin-movies-table {
+        border-radius: 8px;
+    }
+
+}

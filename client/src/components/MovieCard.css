@@ -1,0 +1,231 @@
+.movie-card {
+    flex: 0 0 190px;
+
+    color: white;
+
+    text-decoration: none;
+
+    display: block;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.movie-card-image {
+    width: 190px;
+    height: 280px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 8px;
+
+    background: #18171d;
+
+    border: 1px solid #25232e;
+}
+
+.movie-card-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+
+/* =========================
+   HOVER OVERLAY
+========================= */
+
+.movie-card-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(8, 7, 12, 0.55);
+
+    opacity: 0;
+
+    transition: opacity 0.25s ease;
+}
+
+.play-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #7c3aed;
+
+    border-radius: 50%;
+
+    color: white;
+
+    font-size: 19px;
+
+    padding-left: 3px;
+
+    box-shadow:
+        0 8px 25px rgba(124, 58, 237, 0.35);
+
+    transform: scale(0.85);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+
+/* =========================
+   PREMIUM BADGE
+========================= */
+
+.premium-badge {
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+
+    padding: 5px 8px;
+
+    background: #7c3aed;
+
+    color: white;
+
+    border-radius: 4px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.7px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================
+   HOVER
+========================= */
+
+.movie-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 12px 32px rgba(124, 58, 237, 0.2);
+}
+
+.movie-card:hover img {
+    transform: scale(1.06);
+
+    filter: brightness(0.85);
+}
+
+.movie-card:hover .movie-card-overlay {
+    opacity: 1;
+}
+
+.movie-card:hover .play-icon {
+    transform: scale(1);
+}
+
+
+/* =========================
+   INFORMATION
+========================= */
+
+.movie-card-info {
+    padding: 10px 2px 0;
+}
+
+.movie-card-info h3 {
+    color: #f5f3ff;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    margin: 0;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.movie-card-info p {
+    margin-top: 6px;
+
+    color: #9995a3;
+
+    font-size: 13px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+.card-separator {
+    color: #666270;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .movie-card {
+        flex: 0 0 145px;
+    }
+
+    .movie-card-image {
+        width: 145px;
+        height: 215px;
+    }
+
+    .movie-card-info h3 {
+        font-size: 14px;
+    }
+
+    .movie-card-info p {
+        font-size: 12px;
+    }
+
+    .premium-badge {
+        top: 7px;
+        left: 7px;
+
+        padding: 4px 6px;
+
+        font-size: 8px;
+    }
+
+    .play-icon {
+        width: 42px;
+        height: 42px;
+
+        font-size: 16px;
+    }
+}
