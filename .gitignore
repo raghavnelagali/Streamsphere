@@ -1,0 +1,71 @@
+# Dependencies
+
+node_modules/
+**/node_modules/
+
+# Environment Variables
+
+.env
+.env.*
+!.env.example
+
+**/.env
+**/.env.*
+!**/.env.example
+
+# Build / Production Files
+
+dist/
+build/
+**/dist/
+**/build/
+
+# Vite
+
+.vite/
+
+# Logs
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Operating System
+
+.DS_Store
+Thumbs.db
+
+# Windows
+
+Desktop.ini
+
+# IDE / Editors
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary Files
+
+*.tmp
+*.temp
+*.cache
+
+# Coverage
+
+coverage/
+.nyc_output/
+
+# Optional Local Data
+
+uploads/
+temp/
+tmp/
+
+# Miscellaneous
+
+*.pid
+*.seed
