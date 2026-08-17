@@ -184,23 +184,21 @@ StreamSphere/
 
 ### Home Page
 
-![StreamSphere Home](screenshots/home.png)
+![StreamSphere Home](screenshots/home_1.png)
 
-### Login Page
-
-![Login](screenshots/login.png)
-
-### Register Page
-
-![Register](screenshots/register.png)
+![StreamSphere Home](screenshots/home_2.png)
 
 ### Movie Details
 
-![Movie Details](screenshots/movie-details.png)
+![Movie Details](screenshots/movie_details.png)
 
 ### Subscription Page
 
 ![Subscription](screenshots/subscription.png)
+
+### Payment Page
+
+![Login](screenshots/payment.png)
 
 ### Watch Page
 
@@ -208,23 +206,27 @@ StreamSphere/
 
 ### Admin Dashboard
 
-![Admin Dashboard](screenshots/admin-dashboard.png)
+![Admin Dashboard](screenshots/admin_dashboard.png)
 
 ### Movie Management
 
-![Movie Management](screenshots/admin-movies.png)
+![Movie Management](screenshots/admin_movie_management.png)
 
 ### User Management
 
-![User Management](screenshots/admin-users.png)
+![User Management](screenshots/admin_user_management.png)
 
 ### Active Subscribers
 
-![Active Subscribers](screenshots/admin-subscribers.png)
+![Active Subscribers](screenshots/admin_subscribers.png)
 
 ### Successful Payments
 
-![Successful Payments](screenshots/admin-payments.png)
+![Successful Payments](screenshots/admin_payment.png)
+
+### Login Page
+
+![Login](screenshots/login.png)
 
 ---
 
