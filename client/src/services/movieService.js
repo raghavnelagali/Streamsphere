@@ -1,18 +1,19 @@
-import axios from "axios";
-
-const API_URL =`${import.meta.env.VITE_API_URL}/movies`;
+import api from "./api";
 
 export const getMovies = async (params = {}) => {
-    const response = await axios.get(API_URL, {
-        params,
-    });
+    const response = await api.get(
+        "/movies",
+        {
+            params,
+        }
+    );
 
     return response.data;
 };
 
 export const getMovieById = async (id) => {
-    const response = await axios.get(
-        `${API_URL}/${id}`
+    const response = await api.get(
+        `/movies/${id}`
     );
 
     return response.data;
@@ -22,8 +23,8 @@ export const getWatchVideo = async (id) => {
     const token =
         localStorage.getItem("accessToken");
 
-    const response = await axios.get(
-        `${API_URL}/${id}/watch`,
+    const response = await api.get(
+        `/movies/${id}/watch`,
         {
             headers: {
                 Authorization: `Bearer ${token}`,

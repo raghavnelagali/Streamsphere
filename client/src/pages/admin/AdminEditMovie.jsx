@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
+import api from "../../services/api";
 import "./AdminEditMovie.css";
 
 function AdminEditMovie() {
@@ -28,8 +28,8 @@ function AdminEditMovie() {
     useEffect(() => {
         const fetchMovie = async () => {
             try {
-                const response = await axios.get(
-                    `http://localhost:5000/api/v1/movies/${id}`
+                const response = await api.get(
+                    `/movies/${id}`
                 );
 
                 const movie = response.data.movie;
@@ -128,8 +128,8 @@ function AdminEditMovie() {
                 );
             }
 
-            await axios.put(
-                `http://localhost:5000/api/v1/movies/${id}`,
+            await api.put(
+                `/movies/${id}`,
                 data,
                 {
                     headers: {
@@ -169,33 +169,33 @@ function AdminEditMovie() {
 
             <div className="admin-edit-header">
 
-    <div className="admin-edit-header-content">
+                <div className="admin-edit-header-content">
 
-        <span className="admin-label">
-            STREAMSPHERE ADMIN
-        </span>
+                    <span className="admin-label">
+                        STREAMSPHERE ADMIN
+                    </span>
 
-        <h1>
-            Edit Movie
-        </h1>
+                    <h1>
+                        Edit Movie
+                    </h1>
 
-        <p>
-            Update movie information and media.
-        </p>
+                    <p>
+                        Update movie information and media.
+                    </p>
 
-    </div>
+                </div>
 
-    <button
-        type="button"
-        className="admin-back-button"
-        onClick={() =>
-            navigate("/admin/movies")
-        }
-    >
-        ← Back to Movie Management
-    </button>
+                <button
+                    type="button"
+                    className="admin-back-button"
+                    onClick={() =>
+                        navigate("/admin/movies")
+                    }
+                >
+                    ← Back to Movie Management
+                </button>
 
-</div>
+            </div>
 
 
             <form

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../../services/api";
 import "./AdminPayments.css";
 
 function AdminPayments() {
@@ -16,12 +16,10 @@ function AdminPayments() {
         const fetchPayments = async () => {
             try {
                 const token =
-                    localStorage.getItem(
-                        "accessToken"
-                    );
+                    localStorage.getItem("accessToken");
 
-                const response = await axios.get(
-                    "http://localhost:5000/api/v1/admin/payments",
+                const response = await api.get(
+                    "/admin/payments",
                     {
                         headers: {
                             Authorization:

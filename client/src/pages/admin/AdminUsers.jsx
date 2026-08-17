@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../../services/api";
 import "./AdminUsers.css";
 
 function AdminUsers() {
@@ -20,8 +20,8 @@ function AdminUsers() {
             const token =
                 localStorage.getItem("accessToken");
 
-            const response = await axios.get(
-                "http://localhost:5000/api/v1/admin/users",
+            const response = await api.get(
+                "/admin/users",
                 {
                     params: {
                         search,
@@ -92,7 +92,9 @@ function AdminUsers() {
 
                 <button
                     className="admin-back-button"
-                    onClick={() => navigate("/admin")}
+                    onClick={() =>
+                        navigate("/admin")
+                    }
                 >
                     ← Back to Dashboard
                 </button>
@@ -122,14 +124,19 @@ function AdminUsers() {
 
 
             {loading ? (
+
                 <p className="admin-users-loading">
                     Loading users...
                 </p>
+
             ) : users.length === 0 ? (
+
                 <div className="admin-users-empty">
                     No users found.
                 </div>
+
             ) : (
+
                 <div className="admin-users-table-wrapper">
 
                     <table className="admin-users-table">
@@ -193,43 +200,51 @@ function AdminUsers() {
                                         </td>
 
                                         <td>
+
                                             <span
-                                                className={`role-badge ${
-                                                    user.role
-                                                }`}
+                                                className={`role-badge ${user.role}`}
                                             >
                                                 {user.role}
                                             </span>
+
                                         </td>
 
                                         <td>
+
                                             <span
                                                 className={`subscription-badge ${status}`}
                                             >
                                                 {status}
                                             </span>
+
                                         </td>
 
                                         <td>
+
                                             {user.subscription?.startDate
                                                 ? new Date(
                                                     user.subscription.startDate
                                                 ).toLocaleDateString()
                                                 : "-"}
+
                                         </td>
 
                                         <td>
+
                                             {user.subscription?.endDate
                                                 ? new Date(
                                                     user.subscription.endDate
                                                 ).toLocaleDateString()
                                                 : "-"}
+
                                         </td>
 
                                         <td>
+
                                             {new Date(
                                                 user.createdAt
                                             ).toLocaleDateString()}
+
                                         </td>
 
                                     </tr>

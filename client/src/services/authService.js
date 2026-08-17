@@ -1,10 +1,8 @@
-import axios from "axios";
-
-const API_URL = "http://localhost:5000/api/v1/auth";
+import api from "./api";
 
 export const registerUser = async (userData) => {
-    const response = await axios.post(
-        `${API_URL}/register`,
+    const response = await api.post(
+        "/auth/register",
         userData
     );
 
@@ -12,8 +10,8 @@ export const registerUser = async (userData) => {
 };
 
 export const loginUser = async (userData) => {
-    const response = await axios.post(
-        `${API_URL}/login`,
+    const response = await api.post(
+        "/auth/login",
         userData
     );
 
@@ -21,10 +19,11 @@ export const loginUser = async (userData) => {
 };
 
 export const getProfile = async () => {
-    const token = localStorage.getItem("accessToken");
+    const token =
+        localStorage.getItem("accessToken");
 
-    const response = await axios.get(
-        `${API_URL}/profile`,
+    const response = await api.get(
+        "/auth/profile",
         {
             headers: {
                 Authorization: `Bearer ${token}`,

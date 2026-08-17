@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../../services/api";
 import "./AdminAddMovie.css";
 
 function AdminAddMovie() {
@@ -68,8 +68,8 @@ function AdminAddMovie() {
             const token =
                 localStorage.getItem("accessToken");
 
-            await axios.post(
-                "http://localhost:5000/api/v1/movies",
+            await api.post(
+                "/movies",
                 data,
                 {
                     headers: {
@@ -217,6 +217,7 @@ function AdminAddMovie() {
                                 <option value="Sci-Fi">
                                     Sci-Fi
                                 </option>
+
                             </select>
 
                         </div>

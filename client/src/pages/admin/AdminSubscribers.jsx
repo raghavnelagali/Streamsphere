@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../../services/api";
 import "./AdminSubscribers.css";
 
 function AdminSubscribers() {
@@ -16,8 +16,8 @@ function AdminSubscribers() {
                 const token =
                     localStorage.getItem("accessToken");
 
-                const response = await axios.get(
-                    "http://localhost:5000/api/v1/admin/subscribers",
+                const response = await api.get(
+                    "/admin/subscribers",
                     {
                         headers: {
                             Authorization:
@@ -87,6 +87,7 @@ function AdminSubscribers() {
             <div className="admin-subscribers-header">
 
                 <div>
+
                     <span className="admin-label">
                         STREAMSPHERE ADMIN
                     </span>
@@ -99,6 +100,7 @@ function AdminSubscribers() {
                         View users who currently have
                         an active Premium subscription.
                     </p>
+
                 </div>
 
                 <button
@@ -120,6 +122,7 @@ function AdminSubscribers() {
                 </div>
 
                 <div>
+
                     <span>
                         ACTIVE SUBSCRIBERS
                     </span>
@@ -127,6 +130,7 @@ function AdminSubscribers() {
                     <strong>
                         {subscribers.length}
                     </strong>
+
                 </div>
 
             </div>
@@ -135,6 +139,7 @@ function AdminSubscribers() {
             {subscribers.length === 0 ? (
 
                 <div className="admin-empty">
+
                     <h2>
                         No active subscribers
                     </h2>
@@ -143,6 +148,7 @@ function AdminSubscribers() {
                         There are currently no users
                         with an active Premium subscription.
                     </p>
+
                 </div>
 
             ) : (
@@ -190,6 +196,7 @@ function AdminSubscribers() {
                                 </div>
 
                                 <div>
+
                                     <h3>
                                         {subscriber.name}
                                     </h3>
@@ -197,6 +204,7 @@ function AdminSubscribers() {
                                     <p>
                                         {subscriber.email}
                                     </p>
+
                                 </div>
 
                             </div>
@@ -219,17 +227,22 @@ function AdminSubscribers() {
 
 
                             <span className="days-remaining">
+
                                 {subscriber.daysRemaining}{" "}
+
                                 {subscriber.daysRemaining === 1
                                     ? "day"
                                     : "days"}
+
                             </span>
 
 
                             <span>
+
                                 <span className="active-status">
                                     ACTIVE
                                 </span>
+
                             </span>
 
                         </div>
@@ -237,6 +250,7 @@ function AdminSubscribers() {
                     ))}
 
                 </div>
+
             )}
 
         </main>

@@ -5,13 +5,12 @@ import {
     useState,
 } from "react";
 
-import axios from "axios";
-
 import { getProfile } from "../services/authService";
 
 const AuthContext = createContext();
 
 function AuthProvider({ children }) {
+
     const [user, setUser] = useState(null);
 
     const [isAuthenticated, setIsAuthenticated] =
@@ -21,45 +20,60 @@ function AuthProvider({ children }) {
 
     const [loading, setLoading] = useState(true);
 
+
+    /* LOGIN */
+
     const login = (userData, token) => {
+
         localStorage.setItem(
             "accessToken",
             token
         );
 
         setUser(userData);
+
         setIsAuthenticated(true);
     };
 
+
+    /* LOGOUT */
+
     const logout = () => {
-        localStorage.removeItem("accessToken");
+
+        localStorage.removeItem(
+            "accessToken"
+        );
 
         setUser(null);
+
         setIsAuthenticated(false);
     };
 
+
+    /* REFRESH USER */
+
     const refreshUser = async () => {
+
         const token =
-            localStorage.getItem("accessToken");
+            localStorage.getItem(
+                "accessToken"
+            );
 
         if (!token) {
             return;
         }
 
         try {
-            const response = await axios.get(
-                "http://localhost:5000/api/v1/auth/profile",
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                }
-            );
 
-            setUser(response.data.user);
+            const data =
+                await getProfile();
+
+            setUser(data.user);
+
             setIsAuthenticated(true);
 
         } catch (error) {
+
             console.error(
                 "Failed to refresh user:",
                 error
@@ -69,23 +83,36 @@ function AuthProvider({ children }) {
         }
     };
 
+
+    /* RESTORE USER WHEN APP STARTS */
+
     useEffect(() => {
+
         const restoreUser = async () => {
+
             const token =
-                localStorage.getItem("accessToken");
+                localStorage.getItem(
+                    "accessToken"
+                );
 
             if (!token) {
+
                 setLoading(false);
+
                 return;
             }
 
             try {
-                const data = await getProfile();
+
+                const data =
+                    await getProfile();
 
                 setUser(data.user);
+
                 setIsAuthenticated(true);
 
             } catch (error) {
+
                 console.error(
                     "Failed to restore user:",
                     error
@@ -96,15 +123,19 @@ function AuthProvider({ children }) {
                 );
 
                 setUser(null);
+
                 setIsAuthenticated(false);
 
             } finally {
+
                 setLoading(false);
             }
         };
 
         restoreUser();
+
     }, []);
+
 
     return (
         <AuthContext.Provider
@@ -122,7 +153,9 @@ function AuthProvider({ children }) {
     );
 }
 
+
 export default AuthProvider;
+
 
 export function useAuth() {
     return useContext(AuthContext);

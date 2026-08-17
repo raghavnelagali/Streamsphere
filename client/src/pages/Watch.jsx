@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../services/api";
 import "./Watch.css";
 
 function Watch() {
@@ -25,11 +25,12 @@ function Watch() {
                     return;
                 }
 
-                const response = await axios.get(
-                    `http://localhost:5000/api/v1/movies/${id}/watch`,
+                const response = await api.get(
+                    `/movies/${id}/watch`,
                     {
                         headers: {
-                            Authorization: `Bearer ${token}`,
+                            Authorization:
+                                `Bearer ${token}`,
                         },
                     }
                 );

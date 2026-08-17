@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import axios from "axios";
+import api from "../services/api";
 import "./Subscription.css";
 
 function Subscription() {
@@ -34,8 +34,8 @@ function Subscription() {
                 return;
             }
 
-            const response = await axios.post(
-                "http://localhost:5000/api/v1/subscription/create-order",
+            const response = await api.post(
+                "/subscription/create-order",
                 {},
                 {
                     headers: {
@@ -47,8 +47,7 @@ function Subscription() {
             const order = response.data.order;
 
             const options = {
-                key: import.meta.env
-                    .VITE_RAZORPAY_KEY_ID,
+                key: import.meta.env.VITE_RAZORPAY_KEY_ID,
 
                 amount: order.amount,
 
@@ -66,8 +65,8 @@ function Subscription() {
                 ) {
                     try {
                         const verifyResponse =
-                            await axios.post(
-                                "http://localhost:5000/api/v1/subscription/verify",
+                            await api.post(
+                                "/subscription/verify",
                                 {
                                     razorpay_order_id:
                                         paymentResponse.razorpay_order_id,
@@ -80,7 +79,8 @@ function Subscription() {
                                 },
                                 {
                                     headers: {
-                                        Authorization: `Bearer ${token}`,
+                                        Authorization:
+                                            `Bearer ${token}`,
                                     },
                                 }
                             );
@@ -142,12 +142,15 @@ function Subscription() {
     if (!isAuthenticated) {
         return (
             <main className="subscription-page">
+
                 <div className="subscription-card">
 
                     <div className="subscription-card-header">
+
                         <h2>
                             Login Required
                         </h2>
+
                     </div>
 
                     <p className="subscription-description">
@@ -166,6 +169,7 @@ function Subscription() {
                     </button>
 
                 </div>
+
             </main>
         );
     }
@@ -245,7 +249,6 @@ function Subscription() {
                             >
                                 Start Watching
                             </button>
-
                         </>
                     ) : (
                         <>

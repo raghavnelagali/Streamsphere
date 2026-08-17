@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../../services/api";
 import "./AdminMovies.css";
 
 function AdminMovies() {
@@ -15,8 +15,8 @@ function AdminMovies() {
             const token =
                 localStorage.getItem("accessToken");
 
-            const response = await axios.get(
-                "http://localhost:5000/api/v1/admin/movies",
+            const response = await api.get(
+                "/admin/movies",
                 {
                     headers: {
                         Authorization:
@@ -58,8 +58,8 @@ function AdminMovies() {
             const token =
                 localStorage.getItem("accessToken");
 
-            await axios.delete(
-                `http://localhost:5000/api/v1/movies/${id}`,
+            await api.delete(
+                `/movies/${id}`,
                 {
                     headers: {
                         Authorization:
