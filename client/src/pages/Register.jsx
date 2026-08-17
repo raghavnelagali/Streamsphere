@@ -9,20 +9,77 @@ function Register() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] =
+        useState("");
 
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
 
+    const validateForm = () => {
+        const trimmedName = name.trim();
+        const trimmedEmail = email.trim();
+
+        // Name
+        if (!trimmedName) {
+            return "Name is required";
+        }
+
+        if (trimmedName.length < 2) {
+            return "Name must contain at least 2 characters";
+        }
+
+        if (trimmedName.length > 50) {
+            return "Name must not exceed 50 characters";
+        }
+
+        const nameRegex = /^[A-Za-z ]+$/;
+
+        if (!nameRegex.test(trimmedName)) {
+            return "Name can contain only letters and spaces";
+        }
+
+        // Email
+        const emailRegex =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(trimmedEmail)) {
+            return "Please enter a valid email address";
+        }
+
+        // Password
+        const passwordRegex =
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+        if (!passwordRegex.test(password)) {
+            return "Password must be at least 8 characters and contain uppercase, lowercase, number and special character";
+        }
+
+        // Confirm password
+        if (password !== confirmPassword) {
+            return "Passwords do not match";
+        }
+
+        return "";
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        setError("");
+
+        const validationError = validateForm();
+
+        if (validationError) {
+            setError(validationError);
+            return;
+        }
+
         try {
             setLoading(true);
-            setError("");
 
             await registerUser({
-                name,
-                email,
+                name: name.trim(),
+                email: email.trim().toLowerCase(),
                 password,
             });
 
@@ -71,6 +128,8 @@ function Register() {
                     onSubmit={handleSubmit}
                 >
 
+                    {/* NAME */}
+
                     <div className="auth-field">
 
                         <label>
@@ -88,6 +147,9 @@ function Register() {
                         />
 
                     </div>
+
+
+                    {/* EMAIL */}
 
                     <div className="auth-field">
 
@@ -107,6 +169,9 @@ function Register() {
 
                     </div>
 
+
+                    {/* PASSWORD */}
+
                     <div className="auth-field">
 
                         <label>
@@ -120,11 +185,40 @@ function Register() {
                             onChange={(e) =>
                                 setPassword(e.target.value)
                             }
-                            minLength={6}
+                            required
+                        />
+
+                        <small className="password-help">
+                            Minimum 8 characters with
+                            uppercase, lowercase, number
+                            and special character.
+                        </small>
+
+                    </div>
+
+
+                    {/* CONFIRM PASSWORD */}
+
+                    <div className="auth-field">
+
+                        <label>
+                            Confirm Password
+                        </label>
+
+                        <input
+                            type="password"
+                            placeholder="Confirm your password"
+                            value={confirmPassword}
+                            onChange={(e) =>
+                                setConfirmPassword(
+                                    e.target.value
+                                )
+                            }
                             required
                         />
 
                     </div>
+
 
                     <button
                         className="auth-button"
@@ -137,6 +231,7 @@ function Register() {
                     </button>
 
                 </form>
+
 
                 <div className="auth-footer">
 
